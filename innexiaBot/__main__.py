@@ -26,7 +26,7 @@ from innexiaBot import (
 # needed to dynamically load modules
 # NOTE: Module order is not guaranteed, specify that in the config file!
 from innexiaBot.modules import ALL_MODULES
-from innexiaBot.modules.helper_funcs.chat_status import is_user_admin
+from innexiaBot.modules.helper_funcs.chat_1status import is_user_admin
 from innexiaBot.modules.helper_funcs.misc import paginate_modules
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup, ParseMode, Update
 from telegram.error import (
@@ -72,11 +72,11 @@ def get_readable_time(seconds: int) -> str:
 
     return ping_time
 
-INNEXIA_IMG = "https://telegra.ph/file/8b6f8f2bb4ff3912634c7.jpg"
+SRIKI_IMG = " https://telegra.ph/file/dbd6a5473912ea54b7eed.jpg"
 
 PM_START_TEXT = """
-`Heya` 🤗 `I am` **INNEXIA** `your group super bot`
-`I am very fast and  more efficient  I provide awesome  features which a owner will look for  filter ,warn system,note keeping system flood!`
+Heya 🤗 I am 𝙎𝙍𝙄𝙆𝙄 your group super bot
+I am very fast and  more efficient  I provide awesome  features which a owner will look for  filter ,warn system,note keeping system flood!
 """
 
 buttons = [
@@ -85,9 +85,9 @@ buttons = [
             text="❔Hᴇʟᴘ & Cᴏᴍᴍᴀɴᴅꜱ ❔", callback_data="help_back"),
     ],
     [
-        InlineKeyboardButton(text="🔥 Sᴏᴜʀᴄᴇ", url=f"https://github.com/DarkCybers/innexia"),
+        InlineKeyboardButton(text="🔥 OWNER", url=f"https://t.me/Srikanth_36"),
         InlineKeyboardButton(
-            text="Vᴄ Pʟᴀʏᴇʀ 🎶", url=f"https://telegra.ph/Innexia-Vc-Player-08-19"
+            text="Vᴄ Pʟᴀʏᴇʀ 🎶", url=f"https://telegra.ph/Sriki-Vc-Player-08-19"
         ),
     ],
     [
@@ -97,19 +97,19 @@ buttons = [
         ),
     ],
     [
-        InlineKeyboardButton(text="💕 Sᴜᴍᴍᴏɴ Mᴇ 💕", url="http://t.me/Innexiabot?startgroup=true"),
+        InlineKeyboardButton(text="💕 Sᴜᴍᴍᴏɴ Mᴇ 💕", url="http://t.me/Sriki_RoBot?startgroup=true"),
     ],
 ]
 
 
 HELP_STRINGS = """
-**SETTINGS**
-`Click on the buttons below to get documentation about specific modules..`)"""
+SETTINGS
+Click on the buttons below to get documentation about specific modules..)"""
 
 
 
 DONATE_STRING = """Heya, glad to hear you want to donate!
- @SiderzDonate's 💕"""
+ @Srikanth_36's 💕"""
 
 IMPORTED = {}
 MIGRATEABLE = []
@@ -147,7 +147,7 @@ for module_name in ALL_MODULES:
     if hasattr(imported_module, "__import_data__"):
         DATA_IMPORT.append(imported_module)
 
-    if hasattr(imported_module, "__export_data__"):
+if hasattr(imported_module, "__export_data__"):
         DATA_EXPORT.append(imported_module)
 
     if hasattr(imported_module, "__chat_settings__"):
@@ -173,7 +173,7 @@ def send_help(chat_id, text, keyboard=None):
 @run_async
 def test(update: Update, context: CallbackContext):
     # pprint(eval(str(update)))
-    # update.effective_message.reply_text("Hola tester! _I_ *have* `markdown`", parse_mode=ParseMode.MARKDOWN)
+    # update.effective_message.reply_text("Hola tester! _I_ *have* markdown", parse_mode=ParseMode.MARKDOWN)
     update.effective_message.reply_text("This person edited a message")
     print(update.effective_message)
 
@@ -250,7 +250,7 @@ def error_handler(update, context):
         html.escape(tb),
     )
 
-    if len(message) >= 4096:
+if len(message) >= 4096:
         message = message[:4096]
     # Finally, send the message
     context.bot.send_message(chat_id=OWNER_ID, text=message, parse_mode=ParseMode.HTML)
@@ -359,14 +359,15 @@ def innexia_about_callback(update, context):
             text=""" 𝗜𝗡𝗡𝗘𝗫𝗜𝗔 - A bot to manage your groups with additional features!
             \nHere's the basic help regarding use of Innexia.
             
-            \nAlmost all modules usage defined in the help menu, checkout by sending `/help`
+            \nAlmost all modules usage defined in the help menu, checkout by sending /help
             \nReport error/bugs click the Button""",
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
-                        InlineKeyboardButton(
+
+InlineKeyboardButton(
                             text="Bᴜɢ'ꜱ", url="t.me/SiderzChat"
                         ),
                         InlineKeyboardButton(
@@ -391,7 +392,7 @@ def innexia_about_callback(update, context):
             text=f"*Here's basic Help regarding* *How to use Me?*"
             f"\n\n• Firstly Add {dispatcher.bot.first_name} to your group by pressing [here](http://t.me/{dispatcher.bot.username}?startgroup=true)\n"
             f"\n• After adding promote me manually with full rights for faster experience.\n"
-            f"\n• Than send `/admincache@InnexiaBot` in that chat to refresh admin list in My database.\n"
+            f"\n• Than send /admincache@InnexiaBot in that chat to refresh admin list in My database.\n"
             f"\n\n*All done now use below given button's to know about use!*\n"
             f"",
             parse_mode=ParseMode.MARKDOWN,
@@ -422,7 +423,7 @@ def innexia_about_callback(update, context):
             f"\nYou can ban members, Kick members, Promote someone as admin through commands of bot."
             f"\n\n*Welcome*"
             f"\nLets set a welcome message to welcome new users coming to your group."
-            f"send `/setwelcome [message]` to set a welcome message!",
+            f"send /setwelcome [message] to set a welcome message!",
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
@@ -450,7 +451,8 @@ def innexia_about_callback(update, context):
                 [
                  [
                     InlineKeyboardButton(text="Lᴏɢ'ꜱ", url="t.me/InnexiaLogs"),
-                    InlineKeyboardButton(text="Fᴇᴅ", url="t.me/SiderzFedChat"),
+
+InlineKeyboardButton(text="Fᴇᴅ", url="t.me/SiderzFedChat"),
                  ],
                  [
                     InlineKeyboardButton(text="Sᴜᴘᴘᴏʀᴛ", url="t.me/SiderzChat"),
@@ -471,12 +473,12 @@ def innexia_about_callback(update, context):
             reply_markup=InlineKeyboardMarkup(
                 [
                  [
-                    InlineKeyboardButton(text="Sᴀᴍᴍʏ", url="t.me/useIes"),
-                    InlineKeyboardButton(text="Bʟᴀᴢᴇ", url="t.me/piroXpower"),
+                    InlineKeyboardButton(text="Sriki", url="t.me/Sriki_RoBot"),
+                    InlineKeyboardButton(text="Attitude kimg", url="t.me/Alone_Shurya_king"),
                  ],
                  [
-                    InlineKeyboardButton(text="Iɴꜰɪɴɪᴛʏ", url="t.me/hell_king_infinity"),
-                    InlineKeyboardButton(text="Zᴀʟɪᴍ", url="https://t.me/Jalim_Munda"),
+                    InlineKeyboardButton(text="srikanth", url="t.me/Srikanth_36"),
+                    InlineKeyboardButton(text="Srikanth", url="https://t.me/Srikanth_36"),
                  ],
                  [
                     InlineKeyboardButton(text="Back", callback_data="innexia_basichelp"),
@@ -492,8 +494,8 @@ def Source_about_callback(update, context):
     query = update.callback_query
     if query.data == "source_":
         query.message.edit_text(
-            text=""" Hi..😻 I'm *Innexia*
-                 \nHere is the [🔥Source Code🔥](https://github.com/DarkCybers/innexiaBot) .""",
+            text=""" Hi..😻 I'm *Sriki*
+                 \nHere is the [🔥Source Code🔥](https://github.com/Srikanthrajt7/innexiaBot) .""",
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
@@ -529,7 +531,7 @@ def get_help(update: Update, context: CallbackContext):
                         [
                             InlineKeyboardButton(
                                 text="Help",
-                                url="t.me/{}?start=ghelp_{}".format(
+                                url="t.me/Sriki_RoBot?start=ghelp".format(
                                     context.bot.username, module
                                 ),
                             )
@@ -545,13 +547,13 @@ def get_help(update: Update, context: CallbackContext):
                     [
                         InlineKeyboardButton(
                             text="Hᴇʟᴘ ❔",
-                            url="t.me/{}?start=help".format(context.bot.username),
+                            url="t.me/Sriki_RoBot?start=help".format(context.bot.username),
                         )
                     ],
                     [
                         InlineKeyboardButton(
                             text="Sᴜᴘᴘᴏʀᴛ Cʜᴀᴛ 📢 ",
-                            url="https://t.me/{}".format(SUPPORT_CHAT),
+                            url="https://t.me/we_all_are_best_friends".format(SUPPORT_CHAT),
                         )
                     ],
                 ]
@@ -559,7 +561,7 @@ def get_help(update: Update, context: CallbackContext):
         )
         return
 
-    elif len(args) >= 2 and any(args[1].lower() == x for x in HELPABLE):
+elif len(args) >= 2 and any(args[1].lower() == x for x in HELPABLE):
         module = args[1].lower()
         text = (
             "Here is the available help for the *{}* module:\n".format(
@@ -666,7 +668,7 @@ def settings_button(update: Update, context: CallbackContext):
                 ),
             )
 
-        elif next_match:
+elif next_match:
             chat_id = next_match.group(1)
             next_page = int(next_match.group(2))
             chat = bot.get_chat(chat_id)
@@ -772,7 +774,8 @@ def donate(update: Update, context: CallbackContext):
 
 
 def migrate_chats(update: Update, context: CallbackContext):
-    msg = update.effective_message  # type: Optional[Message]
+
+msg = update.effective_message  # type: Optional[Message]
     if msg.migrate_to_chat_id:
         old_chat = update.effective_chat.id
         new_chat = msg.migrate_to_chat_id
@@ -851,7 +854,7 @@ def main():
     updater.idle()
 
 
-if __name__ == "__main__":
+if name == "__main__":
     LOGGER.info("Successfully loaded modules: " + str(ALL_MODULES))
     telethn.start(bot_token=TOKEN)
     pbot.start()
